@@ -1,23 +1,21 @@
 {
   "files": {
     "main.css": "/redux-reselect/static/css/main.73ef8ea6.css",
-    "main.js": "/redux-reselect/static/js/main.c9b44f0d.js",
-    "static/js/897.1db1ee4d.chunk.js": "/redux-reselect/static/js/897.1db1ee4d.chunk.js",
-    "static/js/27.fbb5ea22.chunk.js": "/redux-reselect/static/js/27.fbb5ea22.chunk.js",
-    "static/js/410.fb1eb12e.chunk.js": "/redux-reselect/static/js/410.fb1eb12e.chunk.js",
-    "static/js/1.9671efed.chunk.js": "/redux-reselect/static/js/1.9671efed.chunk.js",
-    "static/js/294.5718c94f.chunk.js": "/redux-reselect/static/js/294.5718c94f.chunk.js",
+    "main.js": "/redux-reselect/static/js/main.fce9a5d8.js",
+    "static/js/897.0a0a5153.chunk.js": "/redux-reselect/static/js/897.0a0a5153.chunk.js",
+    "static/js/27.22c489c8.chunk.js": "/redux-reselect/static/js/27.22c489c8.chunk.js",
+    "static/js/410.596fbdec.chunk.js": "/redux-reselect/static/js/410.596fbdec.chunk.js",
+    "static/js/1.4af9353e.chunk.js": "/redux-reselect/static/js/1.4af9353e.chunk.js",
     "index.html": "/redux-reselect/index.html",
     "main.73ef8ea6.css.map": "/redux-reselect/static/css/main.73ef8ea6.css.map",
-    "main.c9b44f0d.js.map": "/redux-reselect/static/js/main.c9b44f0d.js.map",
-    "897.1db1ee4d.chunk.js.map": "/redux-reselect/static/js/897.1db1ee4d.chunk.js.map",
-    "27.fbb5ea22.chunk.js.map": "/redux-reselect/static/js/27.fbb5ea22.chunk.js.map",
-    "410.fb1eb12e.chunk.js.map": "/redux-reselect/static/js/410.fb1eb12e.chunk.js.map",
-    "1.9671efed.chunk.js.map": "/redux-reselect/static/js/1.9671efed.chunk.js.map",
-    "294.5718c94f.chunk.js.map": "/redux-reselect/static/js/294.5718c94f.chunk.js.map"
+    "main.fce9a5d8.js.map": "/redux-reselect/static/js/main.fce9a5d8.js.map",
+    "897.0a0a5153.chunk.js.map": "/redux-reselect/static/js/897.0a0a5153.chunk.js.map",
+    "27.22c489c8.chunk.js.map": "/redux-reselect/static/js/27.22c489c8.chunk.js.map",
+    "410.596fbdec.chunk.js.map": "/redux-reselect/static/js/410.596fbdec.chunk.js.map",
+    "1.4af9353e.chunk.js.map": "/redux-reselect/static/js/1.4af9353e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73ef8ea6.css",
-    "static/js/main.c9b44f0d.js"
+    "static/js/main.fce9a5d8.js"
   ]
 }
