@@ -1,10 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { fetchPosts } from 'services/api';
+
+export const fetchPostDataThunk = createAsyncThunk(
+  'postDetails/fetchPostDataThunk',
+  async (postId, thunkApi) => {
+    try {
+      const postData = await fetchPosts(postId);
+      return postData;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
 const initialState = {
   postDetails: null,
   isLoading: false,
   error: null,
-  countValue: 1,
+  // countValue: 1,
   //   toglerTest: false,
 };
 
@@ -12,34 +25,48 @@ const postDetailsSlice = createSlice({
   name: 'postDetails',
   initialState,
   reducers: {
-    setIsLoading: (state, action) => {
-      state.isLoading = action.payload;
-    },
-    setPostDetails: (state, action) => {
-      state.postDetails = action.payload;
-    },
-    setError: (state, action) => {
-      state.error = action.payload;
-    },
-    countValueCount: state => {
-      state.countValue = state.countValue = 0;
-    },
-    incrementCountValue: state => {
-      state.countValue = state.countValue + 1;
-    },
-    decrementCountValue: state => {
-      state.countValue = state.countValue - 1;
-    },
+    // setIsLoading: (state, action) => {
+    //   state.isLoading = action.payload;
+    // },
+    // setPostDetails: (state, action) => {
+    //   state.postDetails = action.payload;
+    // },
+    // setError: (state, action) => {
+    //   state.error = action.payload;
+    // },
+    // countValueCount: state => {
+    //   state.countValue = state.countValue = 0;
+    // },
+    // incrementCountValue: state => {
+    //   state.countValue = state.countValue + 1;
+    // },
+    // decrementCountValue: state => {
+    //   state.countValue = state.countValue - 1;
+    // },
   },
+  extraReducers: builder =>
+    builder
+      .addCase(fetchPostDataThunk.pending, (state, action) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchPostDataThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.postDetails = action.payload;
+      })
+      .addCase(fetchPostDataThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      }),
 });
 
-export const {
-  setIsLoading,
-  setPostDetails,
-  setError,
-  incrementCountValue,
-  decrementCountValue,
-} = postDetailsSlice.actions;
+// export const {
+//   // setIsLoading,
+//   // setPostDetails,
+//   // setError,
+//   // incrementCountValue,
+//   // decrementCountValue,
+// } = postDetailsSlice.actions;
 
 export const postDetailsReducer = postDetailsSlice.reducer;
 
