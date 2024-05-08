@@ -1,45 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ThreeCircles } from 'react-loader-spinner';
-import { toast } from 'react-toastify';
-import { fetchComments } from 'services/api';
 import { useParams } from 'react-router-dom';
-
-const toastConfig = {
-  position: 'top-right',
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: 'dark',
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCommentsThunk } from '../redux/commentsReducer';
 
 const CommentsPostPage = () => {
-  const [comments, setComments] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const comments = useSelector(state => state.comments.comments);
+  const isLoading = useSelector(state => state.comments.isLoading);
+  const error = useSelector(state => state.comments.error);
+
   const { postId } = useParams();
 
   useEffect(() => {
     if (!postId) return;
-
-    const fetchPostData = async () => {
-      try {
-        setIsLoading(true);
-
-        const comments = await fetchComments(postId);
-        setComments(comments);
-        toast.success('Post details were successfully fetched!', toastConfig);
-      } catch (error) {
-        setError(error.message);
-        toast.error(error.message, toastConfig);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchPostData();
-  }, [postId]);
+    dispatch(fetchCommentsThunk(postId));
+  }, [postId, dispatch]);
 
   return (
     <div>
