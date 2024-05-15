@@ -66,7 +66,7 @@ const SearchPage = () => {
           name="search"
           placeholder="Enter post id..."
           required
-          minLength={2}
+          minLength={1}
         />
         <button type="submit">Search</button>
       </form>
